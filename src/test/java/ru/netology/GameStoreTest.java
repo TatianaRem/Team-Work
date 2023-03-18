@@ -1,6 +1,7 @@
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class GameStoreTest {
@@ -14,5 +15,45 @@ public class GameStoreTest {
         assertTrue(store.containsGame(game));
     }
 
-    // другие ваши тесты
+    @Test
+    public void shouldNotContainGame() {
+        GameStore store = new GameStore();
+        Game game = new Game("Нетология Баттл Онлайн", "Аркады", store);
+        assertFalse(store.containsGame(game));
+    }
+
+
+    @Test
+    public void shouldSumAllPlayTime() {
+        GameStore store = new GameStore();
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Call of Duty", "Шутеры");
+        store.publishGame("Mortal Combat", "Файтинги");
+        store.publishGame("Fortnite", "Выживание");
+
+        store.addPlayTime("Игрок 1", 12);
+        store.addPlayTime("Игрок 2", 28);
+        store.addPlayTime("Игрок 3", 15);
+        store.addPlayTime("Игрок 1", 7);
+
+        assertEquals(19, store.getSumPlayedTime());
+    }
+
+    @Test
+    public void shouldGetPlayerWithMostPlayedHours() {
+        GameStore store = new GameStore();
+        store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        store.publishGame("Call of Duty", "Шутеры");
+        store.publishGame("Mortal Combat", "Файтинги");
+        store.publishGame("Fortnite", "Выживание");
+
+        store.addPlayTime("Игрок 1", 12);
+        store.addPlayTime("Игрок 2", 28);
+        store.addPlayTime("Игрок 3", 15);
+        store.addPlayTime("Игрок 1", 7);
+
+        assertEquals("Игрок 2", store.getMostPlayer());
+    }
+
+
 }
