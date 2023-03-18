@@ -48,11 +48,11 @@ public class GameStoreTest {
         store.publishGame("Fortnite", "Выживание");
 
         store.addPlayTime("Игрок 1", 12);
-        store.addPlayTime("Игрок 2", 28);
+        store.addPlayTime("Игрок 2", 2);
         store.addPlayTime("Игрок 3", 15);
         store.addPlayTime("Игрок 1", 7);
 
-        assertEquals("Игрок 2", store.getMostPlayer());
+        assertEquals("Игрок 1", store.getMostPlayer());
     }
 
 
