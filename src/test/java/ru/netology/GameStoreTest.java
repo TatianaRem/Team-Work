@@ -36,7 +36,7 @@ public class GameStoreTest {
         store.addPlayTime("Игрок 3", 15);
         store.addPlayTime("Игрок 1", 7);
 
-        assertEquals(19, store.getSumPlayedTime());
+        assertEquals(62, store.getSumPlayedTime());
     }
 
     @Test
