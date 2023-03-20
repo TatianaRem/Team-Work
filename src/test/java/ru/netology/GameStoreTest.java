@@ -98,6 +98,4 @@ public class GameStoreTest {
 
         assertEquals(62, store.getSumPlayedTime());
     }
-
-
 }
