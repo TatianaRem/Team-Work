@@ -37,9 +37,10 @@ public class PlayerTest {
         player.installGame(game3);
         player.installGame(game4);
         player.installGame(game5);
+        player.installGame(game1);
 
         player.play(game1, 5);
-        player.installGame(game1);
+
 
         int expected = 5;
         int actual = player.sumGenre(game1.getGenre());
